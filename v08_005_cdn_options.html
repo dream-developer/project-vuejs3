@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<head><title>テスト</title></head>
+<body>
+<div id="app">
+<input v-model="msg">
+<button type="button" @click="textClear">クリア</button>
+<p>{{ textTruncateMsg }}</p> 
+</div>
+<script src="https://unpkg.com/vue@3.2/dist/vue.global.js"></script>
+<script>
+const data = { msg: 'メッセージ' }
+const options = {
+  data() {
+    return data
+  },
+  // computedオプション
+  computed: {
+    textTruncateMsg() {
+      return this.msg.length > 10 ? this.msg.substr(0,10) + '…'  : this.msg 
+    },
+  },
+  // methodsオプション
+  methods: {
+    textClear: function() {
+      this.msg = ''
+    },
+  },
+}
+const vm = Vue.createApp(options)
+vm.mount('#app')
+</script>
+</body>
+</html>

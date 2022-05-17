@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CDN</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ msg }}</p>
+      <input v-model="msg">
+    </div>
+    <!-- CDN ( vue@3.x.x の部分は適宜バージョンに合わせる ) -->
+    <script src="https://unpkg.com/vue@3.2"></script>
+    <script>
+      Vue.createApp({
+        setup() {
+            const msg = Vue.ref('メッセージ');
+            return {
+              msg,
+            }
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
